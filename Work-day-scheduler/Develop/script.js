@@ -14,6 +14,23 @@ $(function () {
     $(`#${i}`).siblings("textarea").val(localStorage.getItem(i))
   }
 
+  const clockDisplay = dayjs().format("hh:mm:ss: a")
+  $("#currentTime").text(clockDisplay);  
+  const d =new Date();
+  const hour = d.getHours();
+  // const minute = d.getMinutes();
+  var timeNow = ($.now());
+  var timeRows = $(this).attr(".hour");
+  if ($(timeRows === timeNow).css(".row") === "ff6961") {
+    ('row').changeClass("red")
+  } else {
+    ($(timeRows > timeNow ).css(".row") === "77dd77") 
+  }
+
+ 
+  
+
+
   
 
 //  $("#9").siblings("textarea").val(localStorage.getItem("9"))
