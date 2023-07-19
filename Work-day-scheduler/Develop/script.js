@@ -3,35 +3,63 @@
 // in the html.
 
 
-$(function () {
+$(document).ready(function()  {
   $(".saveBtn").on("click", function(){
-    const time = $(this).attr("id");
-    const textAreaValue = $(this).siblings("textarea").val();
+    var time = $(this).attr("id");
+    var textAreaValue = $(this).siblings("textarea").val();
+    
     localStorage.setItem(time, textAreaValue);
+    console.log(textAreaValue, time)
   })
-
   for (let i = 9; i <= 11; i++) {
     $(`#${i}`).siblings("textarea").val(localStorage.getItem(i))
   }
-
-  const clockDisplay = dayjs().format("hh:mm:ss: a")
-  $("#currentTime").text(clockDisplay);  
-  const d =new Date();
-  const hour = d.getHours();
-  // const minute = d.getMinutes();
-  var timeNow = ($.now());
-  var timeRows = $(this).attr(".hour");
-  if ($(timeRows === timeNow).css(".row") === "ff6961") {
-    ('row').changeClass("red")
-  } else {
-    ($(timeRows > timeNow ).css(".row") === "77dd77") 
-  }
-
  
+//   const clockDisplay = dayjs().format("hh:mm:ss: a")
+//   $("#currentTime").text(clockDisplay); 
+   
+// $("timeDisplay").toggleClass(function(){
+//   const time = $("#currentTime");
   
+//     if (time < clockDisplay) {
+//       $("timeDisplay").css("backgroundColor", "yellow" )
+//   $('background-color').css("background-color", "black");
+//   } else if 
+//     (time === clockDisplay) {
+//       $('background-color').css("background-color", "#black");
+//     }else if 
+//     (time < clockDisplay) {
+//       $('background-color').css("background-color", "#black");
+//       return ('background-color')
+      
+// }
+// })
+// console.log(clockDisplay)
+const timeRows = $(".test").map(function(){ return this.id}).get()
+const clockDisplay = parseInt( dayjs().format("hh") );
+$(".timeDisplay").toggleClass(function() {
+$("#currentTime").text(clockDisplay); 
+for (let index = 0; index < timeRows.length; index++) {
+  console.log(timeRows[index])
+  const newColor = timeRows[index].split("-")[1];
+  // console.log(element)
+}
+  if (timeRows < clockDisplay) {
+  $('background-color').css({"background-color": "red"});
+  } else if 
+    (timeRows === clockDisplay) {
+      $('background-color').css({"background-color": "red"});
+    }else if 
+    (timeRows < clockDisplay) {
+      $('background-color').css({"background-color": "red"});
+jQuery.fn.init();
+      
+}})
 
+console.log(timeRows, clockDisplay)
+     
+  })
 
-  
 
 //  $("#9").siblings("textarea").val(localStorage.getItem("9"))
 //  $("#10").siblings("textarea").val(localStorage.getItem("10"))
@@ -53,5 +81,4 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-  // TODO: Add code to display the current date in the header of the page.
-});
+  // TODO: Add code to display the current date in the header of the page
