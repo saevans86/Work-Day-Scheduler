@@ -11,55 +11,64 @@ $(document).ready(function()  {
     localStorage.setItem(time, textAreaValue);
     console.log(textAreaValue, time)
   })
-  for (let i = 9; i <= 11; i++) {
+  for (let i = 8; i <= 11; i++) {
     $(`#${i}`).siblings("textarea").val(localStorage.getItem(i))
   }
- 
-//   const clockDisplay = dayjs().format("hh:mm:ss: a")
-//   $("#currentTime").text(clockDisplay); 
-   
-// $("timeDisplay").toggleClass(function(){
-//   const time = $("#currentTime");
-  
-//     if (time < clockDisplay) {
-//       $("timeDisplay").css("backgroundColor", "yellow" )
-//   $('background-color').css("background-color", "black");
-//   } else if 
-//     (time === clockDisplay) {
-//       $('background-color').css("background-color", "#black");
-//     }else if 
-//     (time < clockDisplay) {
-//       $('background-color').css("background-color", "#black");
-//       return ('background-color')
-      
-// }
-// })
-// console.log(clockDisplay)
-const timeRows = $(".test").map(function(){ return this.id}).get()
-const clockDisplay = parseInt( dayjs().format("hh") );
-$(".timeDisplay").toggleClass(function() {
-$("#currentTime").text(clockDisplay); 
-for (let index = 0; index < timeRows.length; index++) {
-  console.log(timeRows[index])
-  const newColor = timeRows[index].split("-")[1];
-  // console.log(element)
-}
-  if (timeRows < clockDisplay) {
-  $('background-color').css({"background-color": "red"});
-  } else if 
-    (timeRows === clockDisplay) {
-      $('background-color').css({"background-color": "red"});
-    }else if 
-    (timeRows < clockDisplay) {
-      $('background-color').css({"background-color": "red"});
-jQuery.fn.init();
-      
-}})
 
-console.log(timeRows, clockDisplay)
-     
+    var currentTime = new Date().getHours();
+    $()
+
+      $('.time-block').each(function() {
+        var timeSlot = $(this).data('time');
+        var time = parseInt(timeSlot);
+        var ampm = timeSlot.split(' ')[1];
+
+        if (ampm === 'PM' && time !== 12) {
+          time += 12;
+        }
+
+        if (currentTime === time) {
+          $(this).addClass('present');
+        } else if (currentTime > time) {
+          $(this).addClass('past');
+        } else {
+          $(this).addClass('future');
+        }
+        // const clockDisplay = dayjs().format("hh:mm:ss:a");
+        // $("#currentTime").text(clockDisplay); 
   })
+})
 
+
+ 
+
+// console.log(clockDisplay)
+// const timeToColor = $("container-fluid").map(function(){ return this.id}).get()
+// const clockDisplay = parseInt( dayjs().format("hh") );
+// $(timeToColor, clockDisplay).toggleClass(function() {
+// $("#currentTime").text(clockDisplay); 
+// for (let index = 0; index < timeToColor.length; index++) {
+//   console.log(timeToColor[index])
+//   // const newColor = timeRows[index].split("-")[1];
+//   // console.log(element)
+// }
+//   if (timeToColor <= clockDisplay) {
+//   $('background-color').css("background-color", "red");
+//   } else if 
+//     (timeToColor == clockDisplay) {
+//       $(timeToColor).removeClass('background-color').addClass("background-color", "black");
+//     }else if 
+//     (timeToColor > clockDisplay) {
+//       $('background-color').css("background-color", "red");
+// $init()
+      
+// }})
+
+// console.log(timeToColor, clockDisplay)
+     
+
+
+  // $(selector).addClass(classname,function(index,currentclass))
 
 //  $("#9").siblings("textarea").val(localStorage.getItem("9"))
 //  $("#10").siblings("textarea").val(localStorage.getItem("10"))

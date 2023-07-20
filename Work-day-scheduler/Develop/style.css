@@ -5,7 +5,7 @@ body {
 
 textarea {
   background: transparent;
-  border: none;
+  border: black;
   resize: none;
   color: #000000;
   border-left: 1px solid black;
@@ -16,7 +16,7 @@ textarea {
   white-space: pre-wrap;
 }
 
-.time-block {
+.time-display {
   border-radius: 15px;
 }
 
