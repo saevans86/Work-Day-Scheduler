@@ -1,9 +1,5 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
 
-
-$(document).ready(function()  { 
+$(document).ready(function()  { // ensures html renders before jquery
   $(".btn").on("click", function(){
     var time = $(this).attr("id");  
     var textAreaValue = $(this).siblings("textarea").val(); 
@@ -16,17 +12,17 @@ $(document).ready(function()  {
     $(`#${i}`).siblings("textarea").val(localStorage.getItem(i)) 
   }
 
-    var currentTime = new Date().getHours(); 
-          $('.time-block').each(function() {
-        var timeSlot = $(this).data('time');
+    var currentTime = new Date().getHours(); //get hours based on current time
+          $('.time-block').each(function() { //pulls hour from each block of time
+        var timeSlot = $(this).data('time'); //*this* pulls data between class attr vs params with same name
         var time = parseInt(timeSlot);
         var ampm = timeSlot.split(' ')[1]; 
 
-        if (ampm === 'PM' && time !== 12) {
+        if (ampm === 'PM' && time !== 12) { // differentiate am/pm
           time += 12;
         }
 
-        if (currentTime === time) {
+        if (currentTime === time) { // adds class to past/present/future
           $(this).addClass('present');
         } else if (currentTime > time) {
           $(this).addClass('past');
@@ -35,17 +31,13 @@ $(document).ready(function()  {
         }
  })
 })
-setInterval(function(){
+setInterval(function(){ //build function into the dayjs clock display 
   const clockDisplay = dayjs().format("hh:mm:ss:a");
 $("#currentTime").text(clockDisplay).text
-})
 
 
 
- 
-
-
-
+}, 1000); // added in 1 second to keep it from updating more often than needed
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
