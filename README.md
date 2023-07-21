@@ -13,7 +13,7 @@ I didn't really see the functionality of jquery at first since it seems like it'
 
 ## n/a
 
-If your README is long, add a table of contents to make it easy for users to find what they need.
+
 
 - [N/A](#N/A)
 - [Usage](#usage)
