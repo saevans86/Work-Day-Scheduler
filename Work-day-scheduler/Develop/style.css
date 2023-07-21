@@ -1,6 +1,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
+  text-align: center;
 }
 
 textarea {
@@ -16,7 +17,7 @@ textarea {
   white-space: pre-wrap;
 }
 
-.time-display {
+.time-block {
   border-radius: 15px;
 }
 
@@ -45,15 +46,20 @@ textarea {
   color: white;
 }
 
-.saveBtn {
+.btn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
   color: white;
+
 }
 
-.saveBtn i:hover {
+.btn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+.time-display {
+  width: auto;
 }
