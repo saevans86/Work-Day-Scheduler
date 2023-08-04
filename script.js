@@ -1,28 +1,32 @@
 
-$(document).ready(function()  { // ensures html renders before jquery
+$(document).ready(function()  { 
   $(".btn").on("click", function(){
     var time = $(this).attr("id");  
+    var ampm = time.slice(-2)
+    time = parseInt(time);
+    if (ampm=== "PM" && time !== 12) {
+      time += 12;
+    }
     var textAreaValue = $(this).siblings("textarea").val(); 
 
     
     localStorage.setItem(time, textAreaValue); 
     console.log(textAreaValue, time)
   })
-  for (let i = 8; i <= 11; i++) {
+  for (let i = 8; i <= 23; i++) {
     $(`#${i}`).siblings("textarea").val(localStorage.getItem(i)) 
   }
 
-    var currentTime = new Date().getHours(); //get hours based on current time
-          $('.time-block').each(function() { //pulls hour from each block of time
-        var timeSlot = $(this).data('time'); //*this* pulls data between class attr vs params with same name
+    var currentTime = new Date().getHours(); 
+          $('.time-block').each(function() { 
+        var timeSlot = $(this).data("time" ); 
         var time = parseInt(timeSlot);
         var ampm = timeSlot.split(' ')[1]; 
 
-        if (ampm === 'PM' && time !== 12) { // differentiate am/pm
-          time += 12;
+        if (ampm === 'PM' && time !== 12) { 
         }
 
-        if (currentTime === time) { // adds class to past/present/future
+        if (currentTime === time) { 
           $(this).addClass('present');
         } else if (currentTime > time) {
           $(this).addClass('past');
@@ -31,10 +35,11 @@ $(document).ready(function()  { // ensures html renders before jquery
         }
  })
 })
-setInterval(function(){ //build function into the dayjs clock display 
-  const clockDisplay = dayjs().format("hh:mm:ss:a");
-$("#currentTime").text(clockDisplay).text
 
+
+setInterval(function(){ 
+  const clockDisplay = dayjs().format("MMMM D, YYYY h:mm A");
+$("#currentTime").text(clockDisplay).text
 
 
 }, 1000); // added in 1 second to keep it from updating more often than needed
