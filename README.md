@@ -9,7 +9,9 @@ the time slots colors on the calendar change based on whether it was the past, p
 My goal for this assignment was to use as much jquery as possible. 
 I didn't really see the functionality of jquery at first since it seems like it's being used less and less, but having the knowledge of it seems pretty vital in the event I encounter older codes that primarily use jquery. This project probably tught me the most by finding different ways to implement functions, variables, loops and how selectors function within JS/HTML/CSS which required more understanding of "vanilla" javascript, and things that weren't necessarily solidified as knowledge previously. 
 
-See live link here
+
+
+See live link here:
 
 https://saevans86.github.io/Work-Day-Scheduler/
 
@@ -28,14 +30,15 @@ https://saevans86.github.io/Work-Day-Scheduler/
 
 The app allows you to enter your daily events which will store them in the local storage and display colors based on past/present/future times of day.
 
-![workworkworkworkwork](https://github.com/saevans86/Work-Day-Scheduler/assets/130856120/ce58b803-e08b-431c-b94e-07e71e3f66bd)
+
+![Screenshot 2023-08-04 131814](https://github.com/saevans86/Work-Day-Scheduler/assets/130856120/7e6a7e01-80a3-48e5-80fa-88538c8d8cb4)
 
 
 ## Credits
-
-
-
-W3, MDN, and previous resources/references from in class assignments.
+Beau from AskBCS
+Dane the Tutor
+Stackoverflow
+MDN
 
 ## License
 
