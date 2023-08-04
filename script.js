@@ -1,19 +1,15 @@
-
 $(document).ready(function()  { 
   $(".btn").on("click", function(){
     var time = $(this).attr("id");  
-    var ampm = time.slice(-2)
-    time = parseInt(time);
-    if (ampm=== "PM" && time !== 12) {
-      time += 12;
-    }
+ 
+  
     var textAreaValue = $(this).siblings("textarea").val(); 
 
     
     localStorage.setItem(time, textAreaValue); 
     console.log(textAreaValue, time)
   })
-  for (let i = 8; i <= 23; i++) {
+  for (let i = 8; i <= 21; i++) {
     $(`#${i}`).siblings("textarea").val(localStorage.getItem(i)) 
   }
 
